@@ -20,7 +20,7 @@ Each of these strategies has its advantages and considerations, depending on the
 
  
 
-#CSC-ALLAS
+# CSC-ALLAS
 
 If you're considering using CSC's Allas storage service, which is a versatile data storage service provided by CSC (IT Center for Science) in Finland for storing and managing large datasets, you'll have a somewhat different approach compared to using Google Cloud Storage. Allas is designed to handle massive datasets and is often used for scientific computing, research data storage, and high-performance computing environments. It supports both object storage and file storage interfaces, making it flexible for various use cases.
 
