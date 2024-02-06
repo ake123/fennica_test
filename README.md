@@ -1,4 +1,4 @@
-# fennica_test
+# Fennica data storage ideas
 
 Storing CSV files in Git, especially if they are large or frequently updated, can lead to challenges such as repository bloat, slow cloning and pulling times, and difficulties in handling merge conflicts. Here are several strategies to manage or mitigate these issues by storing CSV files elsewhere:
 
@@ -17,8 +17,6 @@ Storing CSV files in Git, especially if they are large or frequently updated, ca
 7.  **Documentation and Access Control:** Regardless of where you store your CSV files, ensure you document their locations and how to access them. If you're using cloud storage or databases, also consider access control and security to protect your data.
 
 Each of these strategies has its advantages and considerations, depending on the size of the data, the frequency of updates, and your specific workflow requirements. It's important to choose the option that best fits your project's needs and to document the chosen strategy for team members.
-
- 
 
 # CSC-ALLAS
 
