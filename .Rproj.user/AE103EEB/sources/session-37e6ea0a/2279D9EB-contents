@@ -118,7 +118,8 @@ for (i in 1:nrow(manifest$files)) {
     print(head(data))
 }
 ```
-*********************************################************************************
+
+``` r
 
 library(jsonlite)
 library(httr)
@@ -151,3 +152,4 @@ for (i in 1:nrow(manifest$files)) {
         print(paste("Failed to download:", file_location, "- Status code:", status_code(response)))
     }
 }
+```
