@@ -18,9 +18,9 @@ Storing CSV files in Git, especially if they are large or frequently updated, ca
 
 Each of these strategies has its advantages and considerations, depending on the size of the data, the frequency of updates, and your specific workflow requirements. It's important to choose the option that best fits your project's needs and to document the chosen strategy for team members.
 
-########################################################## 
+ 
 
-###############CSC-ALLAS########
+##CSC-ALLAS##
 
 If you're considering using CSC's Allas storage service, which is a versatile data storage service provided by CSC (IT Center for Science) in Finland for storing and managing large datasets, you'll have a somewhat different approach compared to using Google Cloud Storage. Allas is designed to handle massive datasets and is often used for scientific computing, research data storage, and high-performance computing environments. It supports both object storage and file storage interfaces, making it flexible for various use cases.
 
@@ -75,3 +75,77 @@ data <- read.csv(temp_file)
 ### Step 5: Work With Your Data
 
 Once you've successfully accessed and read your data into R, you can proceed with your analysis, visualization, or any other data processing you need to perform.
+
+
+##First attempt##
+library(aws.s3)
+library(jsonlite)
+# Set S3 options to work with Allas
+Sys.setenv("AWS_ACCESS_KEY_ID" = "xxxxxxxx",
+           "AWS_SECRET_ACCESS_KEY" = "xxxxxxxx",
+           "AWS_S3_ENDPOINT" = "a3s.fi",
+           "AWS_DEFAULT_REGION" = "optional_region",
+           "AWS_BUCKET" = "fennica-container")
+
+# Assuming the Allas S3 endpoint and region are correctly set,
+# you can now use aws.s3 functions to interact with your bucket.
+
+# Read the manifest file
+manifest <- fromJSON("manifest.json")
+# str(manifest)
+# # Example to download and read the first dataset CSV
+# file_info <- manifest$files[[1]]
+# str(file_info)
+# file_location <- file_info$location
+# #object <- get_object(file_info$location)
+# 
+# # Assuming the file is a CSV
+# data <- read.csv(text = rawToChar(object), stringsAsFactors = FALSE)
+
+# Iterate over each file entry
+for (i in 1:nrow(manifest$files)) {
+    file_name <- manifest$files$name[i]
+    file_location <- manifest$files$location[i]
+    
+    # Example: Print or use the file name and location
+    print(paste("Name:", file_name, "- Location:", file_location))
+    
+    # Here you can add code to download the file, read the data, etc.
+    # For example, to read a CSV file directly from the URL:
+    data <- read.csv(file_location, row.names = NULL)
+    print(head(data))
+}
+
+*********************************################************************************
+
+library(jsonlite)
+library(httr)
+
+# Load the manifest file
+manifest <- fromJSON("manifest.json")
+
+# Iterate over each file entry
+for (i in 1:nrow(manifest$files)) {
+    file_name <- manifest$files$name[i]
+    file_location <- manifest$files$location[i]
+    
+    # Print file name and location
+    print(paste("Name:", file_name, "- Location:", file_location))
+    
+    # Using httr to handle the request more robustly
+    response <- GET(file_location, timeout(60))  # Extend timeout as needed
+    
+    # Check if the request was successful
+    if (status_code(response) == 200) {
+        # Read the content of the response as text
+        content_text <- content(response, "text", encoding = "UTF-8")
+        
+        # Use read.csv on the content directly
+        data <- read.csv(text = content_text, check.names = FALSE, row.names = NULL)
+        
+        # Now, `data` contains your CSV file as a dataframe
+        # Process data as needed...
+    } else {
+        print(paste("Failed to download:", file_location, "- Status code:", status_code(response)))
+    }
+}
