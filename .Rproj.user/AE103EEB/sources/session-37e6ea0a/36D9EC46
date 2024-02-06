@@ -1,0 +1,26 @@
+{
+    "id": "36D9EC46",
+    "path": "~/fennica_test/Test.R",
+    "project_path": "Test.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1707125553948.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "35,0",
+        "scrollLine": "15"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1707142475,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1707142475507,
+    "read_only": false,
+    "read_only_alternatives": []
+}
