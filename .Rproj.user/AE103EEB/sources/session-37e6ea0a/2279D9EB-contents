@@ -76,10 +76,12 @@ data <- read.csv(temp_file)
 
 Once you've successfully accessed and read your data into R, you can proceed with your analysis, visualization, or any other data processing you need to perform.
 
+``` r
+##First attempt
 
-##First attempt##
 library(aws.s3)
 library(jsonlite)
+
 # Set S3 options to work with Allas
 Sys.setenv("AWS_ACCESS_KEY_ID" = "xxxxxxxx",
            "AWS_SECRET_ACCESS_KEY" = "xxxxxxxx",
@@ -115,7 +117,7 @@ for (i in 1:nrow(manifest$files)) {
     data <- read.csv(file_location, row.names = NULL)
     print(head(data))
 }
-
+```
 *********************************################************************************
 
 library(jsonlite)
