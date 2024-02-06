@@ -3,7 +3,7 @@
     "path": "~/fennica_test/README.md",
     "project_path": "README.md",
     "type": "markdown",
-    "hash": "930448115",
+    "hash": "3415406238",
     "contents": "",
     "dirty": false,
     "created": 1707206671339.0,
@@ -12,8 +12,8 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "19,0",
-        "scrollLine": "25",
+        "cursorPosition": "0,0",
+        "scrollLine": "0",
         "rmdVisualMode": "false",
         "rmdVisualModeLocation": "54:1",
         "rmdVisualWrapConfigured": "true",
@@ -21,11 +21,11 @@
         "rmdVisualCollapsedChunks": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1707206703,
+    "lastKnownWriteTime": 1707206760,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1707206703111,
+    "last_content_update": 1707206760775,
     "read_only": false,
     "read_only_alternatives": []
 }
